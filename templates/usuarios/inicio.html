@@ -1,0 +1,126 @@
+{% extends "usuarios/base.html" %}
+
+
+{% block title %}
+Evaluación 2 - Usuarios
+{% endblock %}
+
+
+{% block contenido %}
+
+<div class="card shadow-sm border-0 mb-4">
+
+    <div class="card-body p-4">
+
+        <h2 class="fw-bold text-primary">
+            Lista de usuarios
+        </h2>
+
+        <p class="text-muted mb-0">
+            Usuarios obtenidos mediante la API Random User Generator.
+        </p>
+
+    </div>
+
+</div>
+
+
+<div class="row g-4">
+
+    {% for usuario in usuarios %}
+
+    <div class="col-12 col-md-6">
+
+        <div class="card h-100 shadow-sm border-0 usuario-card">
+
+            <div class="row g-0 h-100">
+
+                <div class="col-sm-5">
+
+                    <img
+                        src="{{ usuario.picture.large }}"
+                        class="img-fluid rounded-start usuario-imagen"
+                        alt="Foto de {{ usuario.name.first }}"
+                    >
+
+                </div>
+
+
+                <div class="col-sm-7">
+
+                    <div class="card-body">
+
+                        <h5 class="card-title fw-bold text-primary">
+
+                            {{ usuario.name.first }}
+                            {{ usuario.name.last }}
+
+                        </h5>
+
+
+                        <p class="card-text mb-2">
+
+                            <strong>Correo:</strong><br>
+
+                            <span class="text-muted small">
+                                {{ usuario.email }}
+                            </span>
+
+                        </p>
+
+
+                        <p class="card-text mb-2">
+
+                            <strong>Edad:</strong>
+
+                            {{ usuario.dob.age }}
+                            años
+
+                        </p>
+
+
+                        <p class="card-text mb-3">
+
+                            <strong>País:</strong>
+
+                            {{ usuario.location.country }}
+
+                        </p>
+
+
+                        <a
+                            href="{% url 'detalle' forloop.counter0 %}"
+                            class="btn btn-primary"
+                        >
+
+                            Ver detalles
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    {% empty %}
+
+    <div class="col-12">
+
+        <div class="alert alert-danger text-center">
+
+            No se pudieron cargar los usuarios.
+
+        </div>
+
+    </div>
+
+    {% endfor %}
+
+</div>
+
+{% endblock %}

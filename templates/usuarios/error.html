@@ -1,0 +1,40 @@
+{% extends "usuarios/base.html" %}
+
+
+{% block title %}
+Usuario no encontrado
+{% endblock %}
+
+
+{% block contenido %}
+
+<div class="card shadow-sm border-0 text-center">
+
+    <div class="card-body p-5">
+
+        <div class="display-4 mb-3">
+            ⚠️
+        </div>
+
+        <h2 class="fw-bold text-danger">
+            Usuario no encontrado
+        </h2>
+
+        <p class="text-muted">
+            El usuario solicitado no existe.
+        </p>
+
+        <a
+            href="/"
+            class="btn btn-primary"
+        >
+
+            Regresar al inicio
+
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}

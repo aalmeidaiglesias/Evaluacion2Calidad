@@ -1,0 +1,327 @@
+{% extends "usuarios/base.html" %}
+
+
+{% block title %}
+Detalle del usuario
+{% endblock %}
+
+
+{% block contenido %}
+
+
+<!-- BOTÓN REGRESAR -->
+
+<a
+    href="/?page={{ pagina }}"
+    class="btn btn-outline-primary mb-4"
+>
+
+    ← Regresar a usuarios
+
+</a>
+
+
+<!-- INFORMACIÓN DEL USUARIO -->
+
+<div class="card shadow border-0">
+
+    <div class="card-body p-4">
+
+        <div class="row g-4">
+
+            <!-- FOTO PRINCIPAL -->
+
+            <div class="col-12 col-md-4 text-center">
+
+                <img
+                    src="{{ usuario.picture.large }}"
+                    class="img-fluid rounded-4 shadow-sm detalle-imagen"
+                    alt="Foto de {{ usuario.name.first }}"
+                >
+
+            </div>
+
+
+            <!-- DATOS -->
+
+            <div class="col-12 col-md-8">
+
+                <h2 class="fw-bold text-primary">
+
+                    {{ usuario.name.title }}
+                    {{ usuario.name.first }}
+                    {{ usuario.name.last }}
+
+                </h2>
+
+
+                <p class="text-primary">
+
+                    {{ usuario.email }}
+
+                </p>
+
+
+                <hr>
+
+
+                <h4 class="fw-bold mb-3">
+                    Información personal
+                </h4>
+
+
+                <div class="row g-3">
+
+                    <div class="col-12 col-md-6">
+
+                        <div class="dato">
+
+                            <strong>Género</strong>
+
+                            <br>
+
+                            {{ usuario.gender }}
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-12 col-md-6">
+
+                        <div class="dato">
+
+                            <strong>Edad</strong>
+
+                            <br>
+
+                            {{ usuario.dob.age }}
+                            años
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-12 col-md-6">
+
+                        <div class="dato">
+
+                            <strong>Teléfono</strong>
+
+                            <br>
+
+                            {{ usuario.phone }}
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-12 col-md-6">
+
+                        <div class="dato">
+
+                            <strong>Celular</strong>
+
+                            <br>
+
+                            {{ usuario.cell }}
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-12 col-md-6">
+
+                        <div class="dato">
+
+                            <strong>Usuario</strong>
+
+                            <br>
+
+                            {{ usuario.login.username }}
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-12 col-md-6">
+
+                        <div class="dato">
+
+                            <strong>Nacionalidad</strong>
+
+                            <br>
+
+                            {{ usuario.nat }}
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- UBICACIÓN -->
+
+                <h4 class="fw-bold mt-4 mb-3">
+                    Ubicación
+                </h4>
+
+
+                <div class="card bg-light border-0">
+
+                    <div class="card-body">
+
+                        <div class="row">
+
+                            <div class="col-md-6">
+
+                                <p>
+                                    <strong>País:</strong>
+                                    {{ usuario.location.country }}
+                                </p>
+
+                                <p>
+                                    <strong>Estado:</strong>
+                                    {{ usuario.location.state }}
+                                </p>
+
+                                <p>
+                                    <strong>Ciudad:</strong>
+                                    {{ usuario.location.city }}
+                                </p>
+
+                            </div>
+
+
+                            <div class="col-md-6">
+
+                                <p>
+                                    <strong>Calle:</strong>
+                                    {{ usuario.location.street.name }}
+                                </p>
+
+                                <p>
+                                    <strong>Número:</strong>
+                                    {{ usuario.location.street.number }}
+                                </p>
+
+                                <p>
+                                    <strong>Código postal:</strong>
+                                    {{ usuario.location.postcode }}
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- IMÁGENES -->
+
+        <hr class="my-5">
+
+
+        <h4 class="fw-bold text-primary text-center mb-4">
+
+            Imágenes disponibles
+
+        </h4>
+
+
+        <div class="row justify-content-center g-4">
+
+
+            <!-- IMAGEN GRANDE -->
+
+            <div class="col-12 col-sm-4 text-center">
+
+                <div class="card border-0 shadow-sm h-100">
+
+                    <div class="card-body">
+
+                        <h6 class="fw-bold">
+                            Imagen grande
+                        </h6>
+
+                        <img
+                            src="{{ usuario.picture.large }}"
+                            class="img-fluid rounded mt-2 imagen-disponible"
+                            alt="Imagen grande"
+                        >
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- IMAGEN MEDIANA -->
+
+            <div class="col-12 col-sm-4 text-center">
+
+                <div class="card border-0 shadow-sm h-100">
+
+                    <div class="card-body">
+
+                        <h6 class="fw-bold">
+                            Imagen mediana
+                        </h6>
+
+                        <img
+                            src="{{ usuario.picture.medium }}"
+                            class="img-fluid rounded mt-2 imagen-disponible"
+                            alt="Imagen mediana"
+                        >
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- MINIATURA -->
+
+            <div class="col-12 col-sm-4 text-center">
+
+                <div class="card border-0 shadow-sm h-100">
+
+                    <div class="card-body">
+
+                        <h6 class="fw-bold">
+                            Imagen miniatura
+                        </h6>
+
+                        <img
+                            src="{{ usuario.picture.thumbnail }}"
+                            class="img-fluid rounded mt-2 imagen-disponible"
+                            alt="Imagen pequeña"
+                        >
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+{% endblock %}
