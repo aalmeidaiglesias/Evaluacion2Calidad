@@ -7,6 +7,7 @@ def obtener_usuarios():
     url = "https://randomuser.me/api/"
 
     parametros = {
+        "page": 3,
         "results": 10,
         "seed": "abc"
     }
